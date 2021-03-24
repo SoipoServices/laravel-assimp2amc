@@ -55,10 +55,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SoipoServices\\Assimp2AmcServiceProvider"
+                "SoipoServices\\Assimp2Amc\\Assimp2AmcServiceProvider"
             ],
             "aliases": {
-                "Assimp2Amc": "SoipoServices\\Assimp2Amc\\Assimp2AmcFacade"
+                "Assimp2Amc": "SoipoServices\\Assimp2Amc\\Contracts\\Assimp2Amc"
             }
         }
     },
