@@ -8,7 +8,7 @@ use SoipoServices\Assimp2Amc\Contracts\Assimp2Amc;
 
 class Assimp2AmcCommand extends Command
 {
-    public $signature = 'assimp2amc {path} {--bin}';
+    public $signature = 'assimp2amc:run {path} {--bin}';
 
     public $description = 'Can check if all files for the 3d model are present in a folder and compile any 3d model to a .aam format';
 

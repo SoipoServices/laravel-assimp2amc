@@ -18,7 +18,9 @@ class Assimp2AmcServiceProvider extends PackageServiceProvider
         $package
             ->name('assimp2amc')
             ->hasConfigFile()
-            ->hasCommand(Assimp2AmcCommand::class)
+            ->hasCommands([
+                Assimp2AmcCommand::class
+            ])
            ;
     }
 
