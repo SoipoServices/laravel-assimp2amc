@@ -1,0 +1,7 @@
+vendor/
+node_modules/
+src/ExampleModelData
+*.cache
+composer.lock
+assimp2amc
+assimp2amcosx

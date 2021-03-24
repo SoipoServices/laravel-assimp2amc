@@ -1,0 +1,73 @@
+{
+    "name": "soiposervices/laravel-assimp2amc",
+    "description": "laravel-assimp2amc",
+    "keywords": [
+        "soiposervices",
+        "laravel-assimp2amc",
+        "assimp2amc"
+    ],
+    "homepage": "https://github.com/soiposervices/laravel-assimp2amc",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luigi Laezza",
+            "email": "luigi@soiposervices.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "artglass/assimp2amc": "^0.1",
+        "illuminate/contracts": "^8.0",
+        "spatie/laravel-package-tools": "^1.4.3",
+        "symfony/process": "^5.2"
+    },
+    "require-dev": {
+        "brianium/paratest": "^6.2",
+        "nunomaduro/collision": "^5.3",
+        "orchestra/testbench": "^6.15",
+        "phpunit/phpunit": "^9.3",
+        "spatie/laravel-ray": "^1.9",
+        "vimeo/psalm": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "SoipoServices\\Assimp2Amc\\": "src",
+            "SoipoServices\\Assimp2Amc\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SoipoServices\\Assimp2Amc\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "./vendor/bin/testbench package:test --parallel",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage",
+        "compile": "docker  run -v \"$PWD/vendor/artglass/assimp2amc/assimp2amc:/home\" -w \"/home\" -i -t  mcr.microsoft.com/dotnet/sdk:5.0-alpine dotnet publish -r linux-x64 -p:PublishSingleFile=true --self-contained true && mv $PWD/vendor/artglass/assimp2amc/assimp2amc/bin/Debug/netcoreapp3.1/linux-x64/publish/assimp2amc ./src/assimp2amc",
+        "compile-osx": "docker  run -v \"$PWD/vendor/artglass/assimp2amc/assimp2amc:/home\" -w \"/home\" -i -t  mcr.microsoft.com/dotnet/sdk:5.0-alpine dotnet publish -r osx-x64 -p:PublishSingleFile=true --self-contained true && mv $PWD/vendor/artglass/assimp2amc/assimp2amc/bin/Debug/netcoreapp3.1/osx-x64/publish/assimp2amc ./src/assimp2amcosx"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SoipoServices\\Assimp2AmcServiceProvider"
+            ],
+            "aliases": {
+                "Assimp2Amc": "SoipoServices\\Assimp2Amc\\Assimp2AmcFacade"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ARTGLASS/assimp2amc"
+        }
+    ]
+}
